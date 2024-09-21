@@ -27,6 +27,14 @@ inputs:
     default: "openvex"
   custom-socket:
     description: "Custom socket address if setting up containerd image store"
+  retry_on_timeout:
+    description: "Retry on timeout error"
+    required: false
+    default: false
+  max_retries:
+    description: "Max retries on timeout error"
+    required: false
+    default: 3
 outputs:
   patched-image:
     description: 'Image reference of patched image'
