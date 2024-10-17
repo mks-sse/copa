@@ -20,8 +20,7 @@ jobs:
       matrix:
         # provide relevant list of images to scan on each run
         images:
-          - "docker.io/library/alpine:3.18.4"
-          - "docker.io/library/hello-world:latest"
+          - "docker.io/library/alpine:latest"
     steps:
       # generate trivy report for fixable OS package vulnerabilities
       - name: Generate Trivy Report
@@ -76,5 +75,5 @@ jobs:
         if: steps.login.conclusion == 'success'
         run: |
           # retag if needed
-          docker tag ${{ steps.copa.outputs.patched-image }} ghcr.io/mks-sse/copa/test/${{ steps.copa.outputs.patched-image }}
-          docker push ghcr.io/mks-sse/copa/test/${{ steps.copa.outputs.patched-image }}
+          docker tag ${{ steps.copa.outputs.patched-image }} ghcr.io/mks-sse/copa/${{ steps.copa.outputs.patched-image }}
+          docker push ghcr.io/mks-sse/copa/${{ steps.copa.outputs.patched-image }}
