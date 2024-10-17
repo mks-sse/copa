@@ -21,6 +21,7 @@ jobs:
         # provide relevant list of images to scan on each run
         images:
           - "docker.io/library/alpine:latest"
+          - "opensearchproject/opensearch-dashboards"
     steps:
       # generate trivy report for fixable OS package vulnerabilities
       - name: Generate Trivy Report
